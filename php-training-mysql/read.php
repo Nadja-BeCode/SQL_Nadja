@@ -9,6 +9,9 @@
     <h1>Liste des randonnées</h1>
     <table>
       <!-- Afficher la liste des randonnées -->
+      <?php
+
+      ?> query methode
     </table>
   </body>
 </html>
