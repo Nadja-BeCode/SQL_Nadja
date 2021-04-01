@@ -26,7 +26,7 @@ while ($donnees = $resultat->fetch())
 ?>
  <table class="table">
         <thead>
-            <tr>
+            <th>
                 <th><?php echo $donnees['ville']; ?></th>
                 <th><?php echo $donnees['haut']; ?></th>
                 <th><?php echo $donnees['bas']; ?></th>

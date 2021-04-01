@@ -20,16 +20,16 @@ catch (Exception $e)
         die('Erreur : ' . $e->getMessage());
 }
 ?></p>
-<!--------------------------------NEED TO CHECK---------------------------------->
+<!------------------------------------------------------------------>
 
 <p><strong>1 - Affiche toutes les données:</strong></p>
 
 <p><?php
-//    $reponse = $bdd ->query('SELECT idStudent, nom, prenom, datenaissance, genre, school  FROM students');
-//    while($donnees = $reponse->fetch())
-//    {
-//       echo '<p>'. $donnees['students'] . '</p>';
-//    }
+   $reponse = $bdd ->query('SELECT idStudent, nom, prenom, datenaissance, genre, school  FROM students');
+   while($donnees = $reponse->fetch())
+   {
+      echo '<p>'. $donnees['idStudent'] . ' : ' . $donnees['nom'] . '  ' .$donnees['prenom'] . ' = ' .$donnees['datenaissance'] . ' -> ' .$donnees['genre'] . ' - ' .$donnees['school'] . '</p>';
+   }
 ?></p>
 ******************************************************************************************
 <p><strong>2 - Affiche uniquement les prénoms:</strong></p>
@@ -131,11 +131,11 @@ catch (Exception $e)
 <p><strong>11 - Modifier le contenu de la colonne School de sorte que "1" soit remplacé par "Central" et "2" soit remplacé par "Anderlecht". (attention au type de la colonne !):</strong></p>
 
 <p><?php
-     $reponse = $bdd ->query('UPDATE students SET school = 'Central' WHERE school = 1');
-     while($donnees = $reponse->fetch())
-     {
-        echo '<p>'. $donnees['students'] . '</p>';
-     }
+   //   $reponse = $bdd ->query('UPDATE students SET school = \'Central\' WHERE school = 1');
+   //   while($donnees = $reponse->fetch())
+   //   {
+   //      echo '<p>'. $donnees['students'] . '</p>';
+   //   }
 ?></p
 
 </body>
