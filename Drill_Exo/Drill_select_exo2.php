@@ -27,6 +27,12 @@ catch (Exception $e)
 <p><strong>1 - Affiche tous les octocats et leurs données:</strong></p>
 
 <p><?php
+  $bdd = new PDO('mysql:host=localhost;dbname=mountain','root','root', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+  $reponse = $bdd ->query('SELECT * FROM octocats');
+  while($donnees = $reponse->fetch())
+  {
+     echo '<p>'. $donnees[''] . '</p>';
+  }
 
 ?></p>
 SELECT promo, firstname, lastname, gender, birthdate, age, github FROM octocats
@@ -34,7 +40,12 @@ SELECT promo, firstname, lastname, gender, birthdate, age, github FROM octocats
 <p><strong>2 - Affiche uniquement les prénoms:</strong></p>
 
 <p><?php
-
+     $bdd = new PDO('mysql:host=localhost;dbname=mountain','root','root', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+     $reponse = $bdd ->query('SELECT firstname FROM octocats');
+     while($donnees = $reponse->fetch())
+     {
+        echo '<p>'. $donnees['firstname'] . '</p>';
+     }
 ?></p>
 SELECT firstname FROM octocats
 **********************************************

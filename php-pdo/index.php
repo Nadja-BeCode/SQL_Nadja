@@ -12,7 +12,7 @@
 try
 {
 	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=weatherapp;charset=utf8', 'root', 'root');
+	$bdd = new PDO('mysql:host=localhost;dbname=mountain;charset=utf8', 'root', 'root');
 }
 catch(Exception $e)
 {
