@@ -53,26 +53,26 @@ catch (Exception $e)
      }
 ?></p>
 
-***********************************NEED TO CHECK *******************************************************
+*****************************************************************************************
 <p><strong>4 - Affiche uniquement les élèves qui sont de sexe féminin.:</strong></p>
 
 <p><?php
-    //  $reponse = $bdd ->query('SELECT COUNT(*) FROM students WHERE genre = 'F')';
-    //  while($donnees = $reponse->fetch())
-    //  {
-    //     echo '<p>'. $donnees['genre'] . '</p>';
-    //  }
+     $reponse = $bdd ->query('SELECT nom, prenom, genre FROM students WHERE genre = "F"');
+     while($donnees = $reponse->fetch())
+     {
+      echo '<p>'. $donnees['nom'] . ' - ' . $donnees['prenom'] .  ' - ' . $donnees['genre'] . '</p>';
+     }
 ?></p>
 
-******************************************???????************************************************
+******************************************************************************************
 <p><strong>5 - Affiche uniquement les élèves qui font partie de l’école Andy:</strong></p>
 
 <p><?php
-    //  $reponse = $bdd ->query('SELECT COUNT(*) FROM students WHERE ');
-    //  while($donnees = $reponse->fetch())
-    //  {
-    //     echo '<p>'. $donnees['prenom'] . '</p>';
-    //  }
+     $reponse = $bdd ->query('SELECT nom, prenom, school FROM students WHERE school = 1 ');
+     while($donnees = $reponse->fetch())
+     {
+        echo '<p>'. $donnees['nom'] . ' - ' . $donnees['prenom'] .  ' - ' . $donnees['school'] . '</p>';
+     }
 ?></p>
 
 ******************************************************************************************
@@ -101,8 +101,9 @@ catch (Exception $e)
 <p><strong>7 - Ajoute Ginette Dalor, née le 01/01/1930 et affecte-la à Central, toujours en SQL:</strong></p>
 
 <p><?php
-    //  $requete = $bdd ->prepare('INSERT INTO students (idstudent, prenom, nom, datenaissance,genre, school) VALUES (31,'Ginette','Dalor',19300101,'F', 1)');
-    //  $requete ->execute(array($_GET['idstudent'], $_GET['prenom'], $_GET[nom], $_GET['datenaissance'], $_GET['genre'], $_GET['school']))
+    $requete = $bdd ->prepare('INSERT INTO students (idstudent, nom, prenom, datenaissance,genre, school) 
+    VALUES (31,\'Ginette\',\'Dalor\',19300101,\'F\', 1)');
+    $requete ->execute(array($_GET['idstudent'], $_GET['prenom'], $_GET['nom'], $_GET['datenaissance'], $_GET['genre'], $_GET['school']))
     
 ?></p>
 
@@ -110,20 +111,20 @@ catch (Exception $e)
 <p><strong>8 - Modifie Ginette (toujours en SQL) et change son sexe et son prénom en “Omer”:</strong></p>
 
 <p><?php
-     $reponse = $bdd ->query('SELECT prenom, datenaissance, school FROM students');
-     while($donnees = $reponse->fetch())
-     {
-        echo '<p>'. $donnees['prenom'] . '</p>';
-     }
+   //   $reponse = $bdd ->query('SELECT prenom, datenaissance, school FROM students');
+   //   while($donnees = $reponse->fetch())
+   //   {
+   //      echo '<p>'. $donnees['prenom'] . '</p>';
+   //   }
 ?></p>
-************************************??????******************************************************
+******************************************************************************************
 <p><strong>9 - Supprimer la personne dont l’ID est 3 :</strong></p>
 
 <p><?php
-     $reponse = $bdd ->query('SELECT prenom, datenaissance, school FROM students');
+     $reponse = $bdd ->query('SELECT nom, prenom, idStudent FROM students ORDER BY idStudent ASC');
      while($donnees = $reponse->fetch())
      {
-        echo '<p>'. $donnees['prenom'] . '</p>';
+      echo '<p>'. $donnees['nom'] . ' - ' . $donnees['prenom'] .  ' - ' . $donnees['idStudent'] . '</p>';
      }
 ?></p>
 
@@ -134,7 +135,7 @@ catch (Exception $e)
    //   $reponse = $bdd ->query('UPDATE students SET school = \'Central\' WHERE school = 1');
    //   while($donnees = $reponse->fetch())
    //   {
-   //      echo '<p>'. $donnees['students'] . '</p>';
+   //    echo '<p>' . $donnees['school'] . '</p>';
    //   }
 ?></p
 

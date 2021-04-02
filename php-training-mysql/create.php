@@ -37,15 +37,9 @@
 
 			
 				$req = $bdd->prepare('INSERT INTO hiking(name, difficulty, distance, duration, height_difference) VALUES(\'Le tour de Palmiste Rouge\', \'Difficile\', 9.7, 5, 1050)');
-				$req->execute(array(
-					'Le tour de Palmiste Rouge' => $name,
-					'Difficile' => $difficulty,
-					9.7 => $distance,
-					5 => $duration,
-					1050 => $height_difference
-					));
+				$req->execute(array($_POST['name'],$_POST['difficulty'], $_POST['distance'], $_POST['duration'],$_POST['height_difference']));
 
-				echo 'Nouvelle rando insérée !';
+				echo 'La randonnée a été ajoutée avec succès. !';
 		?>
 
 		<div>

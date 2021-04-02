@@ -69,11 +69,11 @@ catch (Exception $e)
 <p><strong>Exercice 5 - Afficher uniquement le nom et le prénom de tous les clients dont le nom commence par la lettre "M":</strong></p>
 
 <p><?php
-    //  $reponse = $bdd ->query('SELECT lastName, firstName FROM clients WHERE lastName LIKE 'M%'');
-    //  while($donnees = $reponse->fetch())
-    //  {
-    //     echo '<p>'. $donnees['lastName'] . ' - ' . $donnees['firstName']  '</p>';
-    //  }
+     $reponse = $bdd ->query('SELECT lastName, firstName FROM clients WHERE lastName LIKE "M%"');
+     while($donnees = $reponse->fetch())
+     {
+        echo '<p>'. $donnees['lastName'] . ' - ' . $donnees['firstName'] . '</p>';
+     }
 ?></p>
 
 ******************************************************************************************
