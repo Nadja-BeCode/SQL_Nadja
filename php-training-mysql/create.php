@@ -25,6 +25,29 @@
 			</select>
 		</div>
 
+		<?php
+			try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=training-sql;charset=utf8', 'root', 'root',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+			}
+			catch(Exception $e)
+			{
+					die('Erreur : '.$e->getMessage());
+			}
+
+			
+				$req = $bdd->prepare('INSERT INTO hiking(name, difficulty, distance, duration, height_difference) VALUES(\'Le tour de Palmiste Rouge\', \'Difficile\', 9.7, 5, 1050)');
+				$req->execute(array(
+					'Le tour de Palmiste Rouge' => $name,
+					'Difficile' => $difficulty,
+					9.7 => $distance,
+					5 => $duration,
+					1050 => $height_difference
+					));
+
+				echo 'Nouvelle rando insérée !';
+		?>
+
 		<div>
 			<label for="distance">Distance</label>
 			<input type="text" name="distance" value="">
