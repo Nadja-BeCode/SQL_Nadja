@@ -101,8 +101,7 @@ catch (Exception $e)
 <p><strong>7 - Ajoute Ginette Dalor, née le 01/01/1930 et affecte-la à Central, toujours en SQL:</strong></p>
 
 <p><?php
-    $requete = $bdd ->prepare('INSERT INTO students (idstudent, nom, prenom, datenaissance,genre, school) 
-    VALUES (31,\'Ginette\',\'Dalor\',19300101,\'F\', 1)');
+    $requete = $bdd ->prepare('INSERT INTO students (idstudent, nom, prenom, datenaissance,genre, school) VALUES (31,\'Ginette\',\'Dalor\',19300101,\'F\', 1)');
     $requete ->execute(array($_GET['idstudent'], $_GET['prenom'], $_GET['nom'], $_GET['datenaissance'], $_GET['genre'], $_GET['school']))
     
 ?></p>

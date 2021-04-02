@@ -1,3 +1,25 @@
+<?php
+			try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=training-sql;charset=utf8', 'root', 'root',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+				if(isset($_POST['name']) AND isset($_POST['difficulty']) AND isset($_POST['distance']) AND isset($_POST['duration']) AND isset($_POST['height_difference'])) {
+				$req = $bdd->prepare('INSERT INTO hiking(name, difficulty, distance, duration, height_difference) VALUES(:name, :difficulty, :distance, :duration, :height_difference)');
+				$req->execute(array(
+					'name' => $_POST['name'],
+					'difficulty' => $_POST['difficulty'], 
+					'distance' => $_POST['distance'], 
+					'duration' => $_POST['duration'],
+					'height_difference' => $_POST['height_difference']));
+
+				echo 'La randonnée a été ajoutée avec succès. !';}
+			}
+			catch(Exception $e)
+			{
+					die('Erreur : '.$e->getMessage());
+			}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,29 +46,6 @@
 				<option value="très difficile">Très difficile</option>
 			</select>
 		</div>
-
-		<?php
-			try
-			{
-				$bdd = new PDO('mysql:host=localhost;dbname=training-sql;charset=utf8', 'root', 'root',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-				if(isset($_POST['name']) AND isset($_POST['difficulty']) AND isset($_POST['distance']) AND isset($_POST['duration']) AND isset($_POST['height_difference'])) {
-				$req = $bdd->prepare('INSERT INTO hiking(name, difficulty, distance, duration, height_difference) VALUES(:name, :difficulty, :distance, :duration, :height_difference)');
-				$req->execute(array(
-					'name' => $_POST['name'],
-					'difficulty' => $_POST['difficulty'], 
-					'distance' => $_POST['distance'], 
-					'duration' => $_POST['duration'],
-					'height_difference' => $_POST['height_difference']));
-
-				echo 'La randonnée a été ajoutée avec succès. !';}
-			}
-			catch(Exception $e)
-			{
-					die('Erreur : '.$e->getMessage());
-			}
-
-			
-		?>
 
 		<div>
 			<label for="distance">Distance</label>

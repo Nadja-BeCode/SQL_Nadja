@@ -1,3 +1,20 @@
+<?php
+			try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=training-sql;charset=utf8', 'root', 'root',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+				if(isset($_POST['name']) AND isset($_POST['difficulty']) AND isset($_POST['distance']) AND isset($_POST['duration']) AND isset($_POST['height_difference'])) {
+					
+					$req = $bdd->prepare('UPDATE hiking SET name = \'Le Feu de Bois\', difficulty = \'Facile\' , distance = 8, duration = 7.6, height_difference = 876 WHERE id = 14');
+					$req->execute(array());
+				
+				echo 'La randonnée a été ajoutée avec succès. !';}
+			}
+			catch(Exception $e)
+			{
+					die('Erreur : '.$e->getMessage());
+			}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
